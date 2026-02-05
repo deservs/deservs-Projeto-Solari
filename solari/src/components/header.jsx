@@ -57,13 +57,13 @@ function Header() {
         </label>
       </div>
       <div className="flex ml-10 gap-5 items-center">
-        <button className="cursor-pointer hover:text-yellow-400 text-xl font-medium h-8 w-8 flex bg-amber-100 items-center justify-center rounded-full">
+        <button className="cursor-pointer hover:text-yellow-400 text-xl font-medium h-8 w-8 flex items-center justify-center rounded-full text-zinc-500">
           <Bell />
         </button>
         <div className="relative">
           <button
             onClick={() => setIsProfileOpen(!isProfileOpen)}
-            className="cursor-pointer hover:text-yellow-400 text-xl font-medium h-12 w-12 bg-amber-50 items-center flex justify-center rounded-full"
+            className="cursor-pointer hover:text-yellow-400 text-xl font-medium h-12 w-12 bg-amber-50 items-center flex justify-center rounded-full text-zinc-500"
           >
             <UserRound className="items-center" />
           </button>
