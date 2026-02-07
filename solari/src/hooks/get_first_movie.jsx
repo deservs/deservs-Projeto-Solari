@@ -4,97 +4,96 @@ import { Play, Info, Flame } from "lucide-react";
 
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
-import '../styles/pag_principal.css'
+import "../styles/pag_principal.css";
 
-const genres = [{
-    "id": 28,
-    "name": "Ação"
+const genres = [
+  {
+    id: 28,
+    name: "Ação",
   },
   {
-    "id": 12,
-    "name": "Aventura"
+    id: 12,
+    name: "Aventura",
   },
   {
-    "id": 16,
-    "name": "Animação"
+    id: 16,
+    name: "Animação",
   },
   {
-    "id": 35,
-    "name": "Comédia"
+    id: 35,
+    name: "Comédia",
   },
   {
-    "id": 80,
-    "name": "Crime"
+    id: 80,
+    name: "Crime",
   },
   {
-    "id": 99,
-    "name": "Documentário"
+    id: 99,
+    name: "Documentário",
   },
   {
-    "id": 18,
-    "name": "Drama"
+    id: 18,
+    name: "Drama",
   },
   {
-    "id": 10751,
-    "name": "Família"
+    id: 10751,
+    name: "Família",
   },
   {
-    "id": 14,
-    "name": "Fantasia"
+    id: 14,
+    name: "Fantasia",
   },
   {
-    "id": 36,
-    "name": "História"
+    id: 36,
+    name: "História",
   },
   {
-    "id": 27,
-    "name": "Terror"
+    id: 27,
+    name: "Terror",
   },
   {
-    "id": 10402,
-    "name": "Música"
+    id: 10402,
+    name: "Música",
   },
   {
-    "id": 9648,
-    "name": "Mistério"
+    id: 9648,
+    name: "Mistério",
   },
   {
-    "id": 10749,
-    "name": "Romance"
+    id: 10749,
+    name: "Romance",
   },
   {
-    "id": 878,
-    "name": "Ficção Científica"
+    id: 878,
+    name: "Ficção Científica",
   },
   {
-    "id": 10770,
-    "name": "Filme de TV"
+    id: 10770,
+    name: "Filme de TV",
   },
   {
-    "id": 53,
-    "name": "Thriller"
+    id: 53,
+    name: "Thriller",
   },
   {
-    "id": 10752,
-    "name": "Guerra"
+    id: 10752,
+    name: "Guerra",
   },
   {
-    "id": 37,
-    "name": "Faroeste"
-  }
+    id: 37,
+    name: "Faroeste",
+  },
 ];
 function BannerMovie() {
   // 1. Criamos um estado para guardar a lista (começa como array vazio)
   const [filmes, setFilmes] = useState([]);
-
 
   useEffect(() => {
     const options = {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     };
 
@@ -110,7 +109,9 @@ function BannerMovie() {
       })
       .catch((err) => console.error(err));
   }, []); // O [] vazio garante que a busca só aconteça UMA vez
-const movieGenres = filmes[0]?.genre_ids.map(id => genres.find(genre => genre.id === id));
+  const movieGenres = filmes[0]?.genre_ids?.map((id) =>
+    genres.find((genre) => genre.id === id),
+  );
   return (
     <div /* Capa do pagina */ className="cursor-default">
       <ul className="relative">
@@ -119,12 +120,16 @@ const movieGenres = filmes[0]?.genre_ids.map(id => genres.find(genre => genre.id
           className="w-full h-[70vh]"
           src={`https://image.tmdb.org/t/p/w500${filmes[0]?.backdrop_path}`}
         />
-        <div className="w-full h-[70vh] absolute top-0 z-10 p-[3vw] bg-gradient-to-b from-black/60 to-banner">
-        <div className="flex gap-[1vw] items-center text-white">
-          <h5 className="text-yellow-400 bg-yellow-400/50 border border-yellow-400 rounded-full w-[10vw] text-center font-bold flex items-center justify-center">Em alta <Flame size={20} /></h5>
-          <h6 className="text-zinc-300">{movieGenres?.map(genre => genre?.name).join(" • ")}</h6>
-        </div>
-        <br />
+        <div className="w-full h-[70vh] absolute top-0 z-10 p-[3vw] bg-gradient-to-b from-60% from-black/60 to-zinc-900">
+          <div className="flex gap-[1vw] items-center text-white">
+            <h5 className="text-yellow-400 bg-yellow-400/50 border border-yellow-400 rounded-full w-[10vw] text-center font-bold flex items-center justify-center">
+              Em alta <Flame size={20} />
+            </h5>
+            <h6 className="text-zinc-300">
+              {movieGenres?.map((genre) => genre?.name).join(" • ")}
+            </h6>
+          </div>
+          <br />
           <h1 className="text-white  text-[6vw] font-bold text-wrap text-left w-[25vw] left-[2vw] leading-[5vw] uppercase">
             {filmes[0]?.title}
           </h1>
@@ -145,7 +150,6 @@ const movieGenres = filmes[0]?.genre_ids.map(id => genres.find(genre => genre.id
         </div>
       </ul>
     </div>
-    
   );
 }
 export default BannerMovie;

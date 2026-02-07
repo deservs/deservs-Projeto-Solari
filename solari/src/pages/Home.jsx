@@ -1,6 +1,7 @@
 import BannerMovie from '../hooks/get_first_movie';
 import ListTrendingMovie from '../hooks/get_list_movie';
 import Header from '../components/header';
+import Footer from '../components/footer';
 
 function Home() {
     return(
@@ -8,6 +9,7 @@ function Home() {
         <Header />
         <BannerMovie />
         <ListTrendingMovie />
+        <Footer />
         </>
     );
 }
