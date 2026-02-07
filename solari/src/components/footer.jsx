@@ -4,7 +4,7 @@ import LogoSolari from "../assets/logo_solari.svg";
 
 function Footer() {
   return (
-    <footer className="bg-black/60 text-white border-t border-zinc-800">
+    <footer className="bg-black/60 text-white border-t border-zinc-800 mt-[4vh]">
       <div className="py-10 pl-10 text-center flex gap-[6vw]">
         <div className="w-[30vw]">
           <div className="flex items-center gap-2 text-[2vw] font-bold">
