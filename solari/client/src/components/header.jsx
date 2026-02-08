@@ -3,7 +3,7 @@ import { Search, Bell, UserRound } from "lucide-react";
 
 import ProfileDropdown from "./profile-dropdown.jsx";
 
-import Logo_Solari from "../assets/logo_solari.svg";
+import Logo_Solari from "../assets/Logo_Solari.svg";
 import "../styles/header.css";
 function Header() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
