@@ -1,6 +1,6 @@
 import { Share2, Earth } from "lucide-react";
 
-import LogoSolari from "../assets/logo_solari.svg";
+import LogoSolari from "../assets/Logo_Solari.svg";
 
 function Footer() {
   return (
