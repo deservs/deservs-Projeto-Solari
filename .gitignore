@@ -1,27 +1,24 @@
-Logs
-/logs
-/.log
-**/npm-debug.log
-/yarn-debug.log*
-/yarn-error.log*
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-Dependências e Builds (O **/ garante que ignore dentro de 'client' e do futuro 'server')
-/node_modules
-/dist
-/dist-ssr
-/.local
+node_modules
+dist
+dist-ssr
+*.local
 
-Segurança (Essencial para o seu futuro Backend em Node)
-/.env
-/.env.
-
-Editor directories and files
+# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
-.ntvs
+*.ntvs*
 *.njsproj
 *.sln
 *.sw?
