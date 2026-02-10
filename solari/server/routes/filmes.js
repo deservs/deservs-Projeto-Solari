@@ -1,3 +1,6 @@
+const express = require("express");
+const router = express.Router();
+
 const genres = [
   {
     id: 28,
@@ -76,31 +79,121 @@ const genres = [
     name: "Faroeste",
   },
 ];
-const express = require('express');
-const { route } = require('./usuarios');
-const router = express.Router();
 
 // A rota no seu servidor que o React vai chamar
-router.get('/tendencias', async (req, res) => {
+
+router.get("/genres", (req, res) => {
+  res.json(genres);
+});
+
+router.get("/tendencias", async (req, res) => {
   const options = {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization: `Bearer ${process.env.TMDB_TOKEN}`, // Deixe sua chave segura aqui
+      Authorization: `Bearer ${process.env.VITE_TMDB_TOKEN}`,
     },
   };
-
   try {
-    const response = await fetch("https://api.themoviedb.org/3/trending/movie/day?language=pt-BR", options);
+    const response = await fetch(
+      "https://api.themoviedb.org/3/trending/movie/day?language=pt-BR",
+      options,
+    );
     const data = await response.json();
     res.json(data.results); // O Node repassa os dados para o React
+    console.log(response.status); // Para verificar no console do Node
   } catch (err) {
-    res.status(500).json({ error: "Erro ao buscar filmes" });
+    console.error("ERRO NO FETCH:", err.message); // Verifique o terminal do VS Code!
+    res.status(500).json({ error: "Erro interno", details: err.message });
   }
 });
 
-router.get('/genres', (req, res) => {
-  res.json(genres);
+router.get("/descobrir", async (req, res) => {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env.VITE_TMDB_TOKEN}`,
+    },
+  };
+  try {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/discover/movie?include_adult=false&page=1&language=pt-BR",
+      options,
+    );
+    const data = await response.json();
+    res.json(data.results); // O Node repassa os dados para o React
+    console.log(response.status); // Para verificar no console do Node
+  } catch (err) {
+    console.error("ERRO NO FETCH:", err.message); // Verifique o terminal do VS Code!
+    res.status(500).json({ error: "Erro interno", details: err.message });
+  }
+});
+
+router.get("/melhores", async (req, res) => {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env.VITE_TMDB_TOKEN}`,
+    },
+  };
+  try {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/movie/top_rated?language=pt-BR&page=1",
+      options,
+    );
+    const data = await response.json();
+    res.json(data.results); // O Node repassa os dados para o React
+    console.log(response.status); // Para verificar no console do Node
+  } catch (err) {
+    console.error("ERRO NO FETCH:", err.message); // Verifique o terminal do VS Code!
+    res.status(500).json({ error: "Erro interno", details: err.message });
+  }
+});
+
+router.get("/s/descobrir", async (req, res) => {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env.VITE_TMDB_TOKEN}`,
+    },
+  };
+  try {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/discover/tv?include_adult=false&page=1&language=pt-BR",
+      options,
+    );
+    const data = await response.json();
+    res.json(data.results); // O Node repassa os dados para o React
+    console.log(response.status); // Para verificar no console do Node
+  } catch (err) {
+    console.error("ERRO NO FETCH:", err.message); // Verifique o terminal do VS Code!
+    res.status(500).json({ error: "Erro interno", details: err.message });
+  }
+});
+
+router.get("/s/melhores", async (req, res) => {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env.VITE_TMDB_TOKEN}`,
+    },
+  };
+  try {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/tv/top_rated?language=pt-BR&page=1",
+      options,
+    );
+    const data = await response.json();
+    res.json(data.results); // O Node repassa os dados para o React
+    console.log(response.status); // Para verificar no console do Node
+  } catch (err) {
+    console.error("ERRO NO FETCH:", err.message); // Verifique o terminal do VS Code!
+    res.status(500).json({ error: "Erro interno", details: err.message });
+  }
 });
 
 module.exports = router;

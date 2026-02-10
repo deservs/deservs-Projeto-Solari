@@ -1,0 +1,34 @@
+#side_menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 60vw;
+    background-color: black;
+    padding: 3rem 0;
+    align-items: center;
+}
+
+#side_logoMenu{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+#side_menu img {
+    width: 4.5rem;
+    height: auto;
+}
+
+#side_menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}

@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import Home from './pages/Home.jsx'
 import Login from './pages/account/login.jsx'
-import ManageApp from './components/conta/manage_profile/manageApp'
+import ManageApp from './pages/account/manageProfile.jsx'
 
-import './styles/pag_principal.css'
+import './styles/global.css'
 
 function App() {
 

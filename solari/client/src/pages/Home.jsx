@@ -1,7 +1,7 @@
-import BannerMovie from "../hooks/get_first_movie";
-import {ListTrendingAll, ListDiscoverMovie, ListDiscoverTv, ListRatedMovies, ListRatedTv} from "../hooks/get_list_movie";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import BannerMovie from "../components/movies/MovieCard.jsx";
+import {ListTrendingAll, ListDiscoverMovie, ListDiscoverTv, ListRatedMovies, ListRatedTv} from "../components/movies/MovieList.jsx";
+import Header from "../components/layout/header/header";
+import Footer from "../components/layout/footer/footer";
 
 function Home() {
   return (
@@ -10,7 +10,7 @@ function Home() {
         <Header />
         <BannerMovie />
         <ListTrendingAll />
-        <br />
+        {/*<br />
         <ListDiscoverMovie />
         <br />
         <ListRatedMovies />
@@ -18,7 +18,7 @@ function Home() {
         <ListDiscoverTv />
         <br />
         <ListRatedTv />
-        <Footer />
+        <Footer />*/}
       </div>
     </>
   );
